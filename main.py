@@ -4,7 +4,10 @@ from pydantic import BaseModel
 from bindu.penguin.bindufy import bindufy
 from agno.agent import Agent
 from agno.models.huggingface import HuggingFace
+from fastapi.middleware.cors import CORSMiddleware
 import os
+import uvicorn
+
 
 
 # --- Agent setup ---
@@ -67,4 +70,10 @@ def chat(req: ChatRequest):
         reply = agent.run(input=req.message)
 
     return {"response": reply.content}
+
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # defaults to 8000 locally
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
