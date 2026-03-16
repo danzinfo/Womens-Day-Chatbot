@@ -1,0 +1,4 @@
+static/
+     ├── style.css
+     └── script.js
+
