@@ -21,7 +21,7 @@ agent = Agent(
     """,
     model=HuggingFace(
         id="openai/gpt-oss-120b:groq",
-        api_key=os.getenv("HF_API_KEY")
+        api_key=os.getenv("HF_API_KEY2")
     )
 )
 
